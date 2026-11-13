@@ -1,3 +1,5 @@
 appId: com.saucelabs.mydemoapp.rn
 ---
-- tapOn: "Place Order"
+- scrollUntilVisible:
+    element: "Place Order.*"
+- tapOn: "Place Order.*"

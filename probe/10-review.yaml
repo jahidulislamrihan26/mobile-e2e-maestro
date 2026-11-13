@@ -1,3 +1,5 @@
 appId: com.saucelabs.mydemoapp.rn
 ---
-- tapOn: "Review Order"
+- scrollUntilVisible:
+    element: "Review Order.*"
+- tapOn: "Review Order.*"

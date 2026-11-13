@@ -5,4 +5,4 @@ appId: com.saucelabs.mydemoapp.rn
 - tapOn: "Password input field"
 - inputText: "10203040"
 - hideKeyboard
-- tapOn: "Login"
+- tapOn: "Login button"

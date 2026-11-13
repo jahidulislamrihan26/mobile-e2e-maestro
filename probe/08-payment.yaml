@@ -1,3 +1,5 @@
 appId: com.saucelabs.mydemoapp.rn
 ---
-- tapOn: "To Payment"
+- scrollUntilVisible:
+    element: "To Payment.*"
+- tapOn: "To Payment.*"
