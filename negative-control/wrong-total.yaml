@@ -1,0 +1,12 @@
+appId: com.saucelabs.mydemoapp.rn
+name: "NEGATIVE CONTROL: expects a wrong total, so it must FAIL"
+---
+# This flow is wrong on purpose. The backpack costs $29.99; it asserts $30.00.
+# scripts/run-tests.sh runs it after the real suite and fails the build if it PASSES, which would mean the assertions check nothing.
+- runFlow: ../subflows/start-app.yaml
+- runFlow:
+    file: ../subflows/add-to-cart.yaml
+    env:
+      PRODUCT: "Sauce Labs Backpack"
+- tapOn: "cart badge"
+- assertVisible: "\\$30.00"

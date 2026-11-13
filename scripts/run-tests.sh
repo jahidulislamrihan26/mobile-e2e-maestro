@@ -17,4 +17,15 @@ if [ -n "${TAGS:-}" ]; then args+=(--include-tags "$TAGS"); fi
 maestro "${args[@]}"
 code=$?
 echo "maestro exit code: $code"
+
+# Negative control: a flow that is wrong on purpose must fail. If it passes, the assertions are not checking anything.
+if [ -z "${TAGS:-}" ] && [ "${SKIP_NEGATIVE_CONTROL:-0}" != "1" ]; then
+  maestro test negative-control/wrong-total.yaml > reports/negative-control.log 2>&1
+  if [ $? -eq 0 ]; then
+    echo "NEGATIVE CONTROL PASSED, which it must not: the tests cannot fail."
+    code=1
+  else
+    echo "Negative control failed as expected: the assertions do catch a wrong value."
+  fi
+fi
 exit $code

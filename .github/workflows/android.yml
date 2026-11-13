@@ -3,7 +3,7 @@ name: Android tests
 on:
   push:
     branches: [main]
-    paths: ['flows/**', 'subflows/**', 'scripts/**', '.github/workflows/android.yml']
+    paths: ['flows/**', 'subflows/**', 'negative-control/**', 'scripts/**', '.github/workflows/android.yml']
   pull_request:
   workflow_dispatch:
     inputs:
