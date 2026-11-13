@@ -1,4 +1,4 @@
-appId: com.saucelabs.mydemoapp.rn
+﻿appId: com.saucelabs.mydemoapp.rn
 ---
 - tapOn: "Full Name input field"
 - inputText: "Ada Lovelace"
@@ -8,4 +8,3 @@ appId: com.saucelabs.mydemoapp.rn
 - inputText: "1230"
 - tapOn: "Security Code input field"
 - inputText: "123"
-- hideKeyboard

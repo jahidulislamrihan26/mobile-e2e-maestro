@@ -1,4 +1,4 @@
-appId: com.saucelabs.mydemoapp.rn
+﻿appId: com.saucelabs.mydemoapp.rn
 ---
 - tapOn: "Full Name input field"
 - inputText: "Ada Lovelace"
@@ -10,4 +10,3 @@ appId: com.saucelabs.mydemoapp.rn
 - inputText: "N1 9GU"
 - tapOn: "Country input field"
 - inputText: "United Kingdom"
-- hideKeyboard
