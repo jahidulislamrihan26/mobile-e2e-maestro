@@ -10,9 +10,8 @@ for f in probe/*.yaml; do
   name=$(basename "$f" .yaml)
   echo "=== $name"
   maestro test scripts/dismiss-anr.yaml > /dev/null 2>&1
-  maestro test "$f" 2>&1 | tail -n 12
+  timeout 120 maestro test "$f" 2>&1 | head -n 8
   sleep 2
-  maestro hierarchy > "artifacts/$name.json" 2> "artifacts/$name.err"
-  adb exec-out screencap -p > "artifacts/$name.png"
+  timeout 90 maestro hierarchy > "artifacts/$name.json" 2> "artifacts/$name.err"
 done
 echo "done"

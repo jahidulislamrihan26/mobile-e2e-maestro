@@ -1,4 +1,3 @@
 appId: com.saucelabs.mydemoapp.rn
 ---
-- tapOn: "Cart"
-- assertVisible: "Proceed To Checkout"
+- tapOn: "cart badge"

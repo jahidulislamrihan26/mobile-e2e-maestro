@@ -1,4 +1,3 @@
 appId: com.saucelabs.mydemoapp.rn
 ---
-- tapOn: "Catalog"
 - tapOn: "sort button"
