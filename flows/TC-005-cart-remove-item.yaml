@@ -1,0 +1,16 @@
+appId: com.saucelabs.mydemoapp.rn
+name: "TC-005 Removing the only item empties the cart"
+tags:
+  - regression
+  - cart
+---
+- runFlow: ../subflows/start-app.yaml
+- runFlow:
+    file: ../subflows/add-to-cart.yaml
+    env:
+      PRODUCT: "Sauce Labs Backpack"
+- tapOn: "cart badge"
+- assertVisible: "Sauce Labs Backpack"
+- tapOn: "remove item"
+- assertNotVisible: "Sauce Labs Backpack"
+- assertNotVisible: "Proceed To Checkout"

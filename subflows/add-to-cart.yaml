@@ -1,0 +1,6 @@
+appId: com.saucelabs.mydemoapp.rn
+---
+# Opens a product from the catalog and adds one to the cart.  Input: PRODUCT (the product's name as shown in the catalog).
+- tapOn: ${PRODUCT}
+- assertVisible: "Add To Cart"
+- tapOn: "Add To Cart button"

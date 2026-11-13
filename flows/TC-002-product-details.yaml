@@ -1,0 +1,12 @@
+appId: com.saucelabs.mydemoapp.rn
+name: "TC-002 Product page shows the product and an Add To Cart button"
+tags:
+  - smoke
+  - catalog
+---
+- runFlow: ../subflows/start-app.yaml
+- tapOn: "Sauce Labs Backpack"
+- assertVisible: "Sauce Labs Backpack"
+- assertVisible: "\\$29.99"
+- assertVisible: "Product Highlights"
+- assertVisible: "Add To Cart"

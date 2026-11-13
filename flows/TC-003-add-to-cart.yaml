@@ -1,0 +1,19 @@
+appId: com.saucelabs.mydemoapp.rn
+name: "TC-003 Adding a product puts it in the cart with the right total"
+tags:
+  - smoke
+  - cart
+---
+- runFlow: ../subflows/start-app.yaml
+- runFlow:
+    file: ../subflows/add-to-cart.yaml
+    env:
+      PRODUCT: "Sauce Labs Backpack"
+# the cart icon now shows one item
+- assertVisible: "1"
+- tapOn: "cart badge"
+- assertVisible: "My Cart"
+- assertVisible: "Sauce Labs Backpack"
+- assertVisible: "1 item"
+- assertVisible: "\\$29.99"
+- assertVisible: "Proceed To Checkout"

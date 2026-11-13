@@ -1,0 +1,9 @@
+appId: com.saucelabs.mydemoapp.rn
+---
+# Fills in the login form and submits it.  Inputs: USERNAME, PASSWORD.
+# No hideKeyboard on purpose: on Android it sends "Back" when no keyboard is showing, which would leave the screen.
+- tapOn: "Username input field"
+- inputText: ${USERNAME}
+- tapOn: "Password input field"
+- inputText: ${PASSWORD}
+- tapOn: "Login button"

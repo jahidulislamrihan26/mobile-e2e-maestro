@@ -1,0 +1,11 @@
+appId: com.saucelabs.mydemoapp.rn
+---
+# From the cart: start checkout, log in as the standard user (checkout needs an account) and land on the address form.
+- tapOn: "Proceed To Checkout button"
+- assertVisible: "Login"
+- runFlow:
+    file: login.yaml
+    env:
+      USERNAME: "bob@example.com"
+      PASSWORD: "10203040"
+- assertVisible: "Enter a shipping address"

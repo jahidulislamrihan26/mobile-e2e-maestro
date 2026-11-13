@@ -1,0 +1,13 @@
+appId: com.saucelabs.mydemoapp.rn
+---
+# Fills in the shipping address form. The labels contain an asterisk (a regex symbol), so they are matched with ".*".
+- tapOn: "Full Name.*input field"
+- inputText: "Ada Lovelace"
+- tapOn: "Address Line 1.*input field"
+- inputText: "12 Analytical Street"
+- tapOn: "City.*input field"
+- inputText: "London"
+- tapOn: "Zip Code.*input field"
+- inputText: "N1 9GU"
+- tapOn: "Country.*input field"
+- inputText: "United Kingdom"

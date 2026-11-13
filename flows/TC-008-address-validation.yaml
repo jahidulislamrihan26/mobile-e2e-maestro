@@ -1,0 +1,23 @@
+appId: com.saucelabs.mydemoapp.rn
+name: "TC-008 Checkout will not go past an empty shipping address"
+tags:
+  - regression
+  - checkout
+---
+- runFlow: ../subflows/start-app.yaml
+- runFlow:
+    file: ../subflows/add-to-cart.yaml
+    env:
+      PRODUCT: "Sauce Labs Backpack"
+- tapOn: "cart badge"
+- runFlow: ../subflows/checkout-to-address.yaml
+- scrollUntilVisible:
+    element: "To Payment.*"
+- tapOn: "To Payment.*"
+- assertVisible: "Please provide your full name."
+- assertVisible: "Please provide your address."
+- assertVisible: "Please provide your city."
+- assertVisible: "Please provide your zip code."
+- assertVisible: "Please provide your country."
+# still on the address step, not the payment step
+- assertVisible: "Enter a shipping address"

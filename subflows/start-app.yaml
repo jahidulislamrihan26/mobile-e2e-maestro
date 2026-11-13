@@ -1,0 +1,12 @@
+appId: com.saucelabs.mydemoapp.rn
+---
+# Every test starts from a clean install state: empty cart, nobody logged in.
+- launchApp:
+    clearState: true
+# A slow CI emulator sometimes shows Android's "isn't responding" dialog over the app. Choosing "Wait" clears it.
+- runFlow:
+    when:
+      visible: "Wait"
+    commands:
+      - tapOn: "Wait"
+- assertVisible: "Products"

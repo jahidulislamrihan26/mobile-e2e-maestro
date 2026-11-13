@@ -1,0 +1,47 @@
+appId: com.saucelabs.mydemoapp.rn
+name: "TC-009 A customer can buy a product from catalog to confirmation"
+tags:
+  - smoke
+  - checkout
+---
+- runFlow: ../subflows/start-app.yaml
+- runFlow:
+    file: ../subflows/add-to-cart.yaml
+    env:
+      PRODUCT: "Sauce Labs Backpack"
+- tapOn: "cart badge"
+- runFlow: ../subflows/checkout-to-address.yaml
+- runFlow: ../subflows/fill-address.yaml
+- scrollUntilVisible:
+    element: "To Payment.*"
+- tapOn: "To Payment.*"
+- assertVisible: "Enter a payment method"
+- runFlow:
+    file: ../subflows/fill-payment.yaml
+    env:
+      CARD_NUMBER: "4111111111111111"
+      EXPIRY: "1230"
+      CVV: "123"
+- scrollUntilVisible:
+    element: "Review Order.*"
+- tapOn: "Review Order.*"
+
+# the review screen repeats what was entered, and adds shipping to the price (29.99 + 5.99)
+- assertVisible: "Review your order"
+- assertVisible: "12 Analytical Street"
+- assertVisible: "London"
+- assertVisible: "United Kingdom, N1 9GU"
+- assertVisible: "4111 1111 1111 1111"
+- assertVisible: "Exp: 12/30"
+- assertVisible: "\\$35.98"
+- scrollUntilVisible:
+    element: "Place Order.*"
+- tapOn: "Place Order.*"
+
+- assertVisible: "Checkout Complete"
+- assertVisible: "Thank you for your order"
+- scrollUntilVisible:
+    element: "Continue Shopping.*"
+- tapOn: "Continue Shopping.*"
+# back on the catalog with an empty cart
+- assertVisible: "Products"

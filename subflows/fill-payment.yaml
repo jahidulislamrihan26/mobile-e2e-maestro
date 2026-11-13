@@ -1,0 +1,11 @@
+appId: com.saucelabs.mydemoapp.rn
+---
+# Fills in the card form.  Inputs: CARD_NUMBER, EXPIRY (MMYY), CVV.  Cardholder name is fixed.
+- tapOn: "Full Name.*input field"
+- inputText: "Ada Lovelace"
+- tapOn: "Card Number.*input field"
+- inputText: ${CARD_NUMBER}
+- tapOn: "Expiration Date.*input field"
+- inputText: ${EXPIRY}
+- tapOn: "Security Code.*input field"
+- inputText: ${CVV}

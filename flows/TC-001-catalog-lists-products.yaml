@@ -1,0 +1,15 @@
+appId: com.saucelabs.mydemoapp.rn
+name: "TC-001 Catalog lists the products with their prices"
+tags:
+  - smoke
+  - catalog
+---
+- runFlow: ../subflows/start-app.yaml
+- assertVisible: "Sauce Labs Backpack"
+- assertVisible: "\\$29.99"
+- assertVisible: "Sauce Labs Bike Light"
+- assertVisible: "\\$9.99"
+- assertVisible: "Sauce Labs Bolt T-Shirt"
+- assertVisible: "\\$15.99"
+- assertVisible: "Sauce Labs Fleece Jacket"
+- assertVisible: "\\$49.99"

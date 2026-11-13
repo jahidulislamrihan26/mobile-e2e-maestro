@@ -1,0 +1,24 @@
+appId: com.saucelabs.mydemoapp.rn
+name: "TC-006 Two different products add up in the cart"
+tags:
+  - regression
+  - cart
+---
+- runFlow: ../subflows/start-app.yaml
+- runFlow:
+    file: ../subflows/add-to-cart.yaml
+    env:
+      PRODUCT: "Sauce Labs Backpack"
+# back to the catalog through the menu, then add a second product
+- tapOn: "open menu"
+- tapOn: "menu item catalog"
+- assertVisible: "Products"
+- runFlow:
+    file: ../subflows/add-to-cart.yaml
+    env:
+      PRODUCT: "Sauce Labs Bike Light"
+- tapOn: "cart badge"
+- assertVisible: "Sauce Labs Backpack"
+- assertVisible: "Sauce Labs Bike Light"
+- assertVisible: "2 items"
+- assertVisible: "\\$39.98"

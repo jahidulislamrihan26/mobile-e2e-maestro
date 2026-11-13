@@ -1,0 +1,19 @@
+appId: com.saucelabs.mydemoapp.rn
+name: "TC-004 Changing the quantity in the cart updates the total"
+tags:
+  - regression
+  - cart
+---
+- runFlow: ../subflows/start-app.yaml
+- runFlow:
+    file: ../subflows/add-to-cart.yaml
+    env:
+      PRODUCT: "Sauce Labs Backpack"
+- tapOn: "cart badge"
+- assertVisible: "1 item"
+- tapOn: "counter plus button"
+- assertVisible: "2 items"
+- assertVisible: "\\$59.98"
+- tapOn: "counter minus button"
+- assertVisible: "1 item"
+- assertVisible: "\\$29.99"

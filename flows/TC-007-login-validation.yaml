@@ -1,0 +1,34 @@
+appId: com.saucelabs.mydemoapp.rn
+name: "TC-007 Login rejects an empty form, a wrong password and a locked-out user"
+tags:
+  - regression
+  - login
+---
+- runFlow: ../subflows/start-app.yaml
+- tapOn: "open menu"
+- tapOn: "menu item log in"
+- assertVisible: "Select a username and password.*"
+
+# empty form
+- tapOn: "Login button"
+- assertVisible: "Username is required"
+
+# wrong password
+- runFlow:
+    file: ../subflows/login.yaml
+    env:
+      USERNAME: "bob@example.com"
+      PASSWORD: "not-the-password"
+- assertVisible: "Provided credentials do not match any user in this service."
+
+# locked-out account (the form still holds the previous text, so clear it first)
+- tapOn: "Username input field"
+- eraseText
+- tapOn: "Password input field"
+- eraseText
+- runFlow:
+    file: ../subflows/login.yaml
+    env:
+      USERNAME: "alice@example.com"
+      PASSWORD: "10203040"
+- assertVisible: "Sorry, this user has been locked out."
