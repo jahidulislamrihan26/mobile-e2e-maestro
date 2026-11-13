@@ -1,10 +1,10 @@
-﻿appId: com.saucelabs.mydemoapp.rn
+appId: com.saucelabs.mydemoapp.rn
 ---
-- tapOn: "Full Name input field"
+- tapOn: "Full Name.*input field"
 - inputText: "Ada Lovelace"
-- tapOn: "Card Number input field"
+- tapOn: "Card Number.*input field"
 - inputText: "4111111111111111"
-- tapOn: "Expiration Date input field"
+- tapOn: "Expiration Date.*input field"
 - inputText: "1230"
-- tapOn: "Security Code input field"
+- tapOn: "Security Code.*input field"
 - inputText: "123"

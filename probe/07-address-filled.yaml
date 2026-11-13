@@ -1,12 +1,12 @@
-﻿appId: com.saucelabs.mydemoapp.rn
+appId: com.saucelabs.mydemoapp.rn
 ---
-- tapOn: "Full Name input field"
+- tapOn: "Full Name.*input field"
 - inputText: "Ada Lovelace"
-- tapOn: "Address Line 1 input field"
+- tapOn: "Address Line 1.*input field"
 - inputText: "12 Analytical Street"
-- tapOn: "City input field"
+- tapOn: "City.*input field"
 - inputText: "London"
-- tapOn: "Zip Code input field"
+- tapOn: "Zip Code.*input field"
 - inputText: "N1 9GU"
-- tapOn: "Country input field"
+- tapOn: "Country.*input field"
 - inputText: "United Kingdom"
