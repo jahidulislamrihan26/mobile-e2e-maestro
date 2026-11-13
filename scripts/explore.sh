@@ -5,9 +5,11 @@ set +e
 export PATH="$HOME/maestro/bin:$PATH"
 adb install -r app/app.apk
 mkdir -p artifacts
+sleep 60   # let the freshly booted emulator settle; a busy system process is what causes "isn't responding" dialogs
 for f in probe/*.yaml; do
   name=$(basename "$f" .yaml)
   echo "=== $name"
+  maestro test scripts/dismiss-anr.yaml > /dev/null 2>&1
   maestro test "$f" 2>&1 | tail -n 12
   sleep 2
   maestro hierarchy > "artifacts/$name.json" 2> "artifacts/$name.err"

@@ -1,0 +1,8 @@
+appId: com.saucelabs.mydemoapp.rn
+---
+# A slow CI emulator sometimes shows Android's "isn't responding" dialog over the app. Choosing "Wait" clears it and changes nothing else.
+- runFlow:
+    when:
+      visible: "Wait"
+    commands:
+      - tapOn: "Wait"
