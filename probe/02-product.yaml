@@ -1,0 +1,4 @@
+appId: com.saucelabs.mydemoapp.rn
+---
+- tapOn: "Sauce Labs Backpack"
+- assertVisible: "Add To Cart"

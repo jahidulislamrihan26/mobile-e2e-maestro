@@ -1,0 +1,5 @@
+appId: com.saucelabs.mydemoapp.rn
+---
+- launchApp:
+    clearState: true
+- assertVisible: "Products"

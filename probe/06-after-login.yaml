@@ -1,0 +1,8 @@
+appId: com.saucelabs.mydemoapp.rn
+---
+- tapOn: "Username input field"
+- inputText: "bob@example.com"
+- tapOn: "Password input field"
+- inputText: "10203040"
+- hideKeyboard
+- tapOn: "Login"

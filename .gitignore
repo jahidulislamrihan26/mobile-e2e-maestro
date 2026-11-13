@@ -1,0 +1,5 @@
+app/
+reports/
+artifacts/
+*.log
+.DS_Store
